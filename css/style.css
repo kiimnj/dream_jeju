@@ -107,7 +107,7 @@ nav {
     width:100%;
     height:300px;
     /* background-color: orange; */
-    overflow:hidden;  /* 영역 넘치면 감춤 */ 
+    overflow: hidden;  /* 영역 넘치면 감춤 */ 
     position: relative;
 }
 #slides {
@@ -149,6 +149,7 @@ button:focus {
 #contents {
     width: 100%;
     height: 300px;
+    margin-top: 20px;
 }
 
 /* 탭 메뉴 영역 */
@@ -156,10 +157,20 @@ button:focus {
     float:left;  /* 왼쪽으로 플로팅 */ 
     width: 600px; 
     height: 100%;
+    margin-top: 10px;
     /* background-color: violet; */
 }
 #tabMenu input[type="radio"] {
     display: none;
+}
+#tabMenu label {
+    display: inline-block;
+    margin: 0 0;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid transparent;
 }
 #tabMenu label:hover {
     color: #222;
@@ -170,17 +181,22 @@ button:focus {
     border: 1px solid #ddd;
     background-color: #eee;
 }
-.tabContents {
+#tab1:checked ~ #notice, 
+#tab2:checked ~ #gallery {
+    display: block;
+}
+
+.tabContent {
     display: none;
     padding: 20px 0 0;
     border-top: 1px solid #ddd;
 }
-.tabContents h2 {
+.tabContent h2 {
     display: none;
 }
 
 #notice ul {
-    /* list-style: disc; 디폴트값 */ 
+    list-style: disc; /* 디폴트값, 맨 위 ul에서 none으로 설정했으므로 이 부분은 다시 보이도록 */ 
     margin-left: 30px;
 }
 #notice ul li {
@@ -196,8 +212,45 @@ button:focus {
     float: right;
     width: 600px;
     height: 100%;
-    background-color: skyblue;
+    /* background-color: skyblue; */
+    margin-top: 15px;
 }
+#links ul {
+    padding: 0;
+    overflow: hidden; /* 넘치는 항목은 숨김 */
+}
+#links ul li {
+    float: left; /* 가로로 배치 */
+    width: 33%; /* fr은 그리드 방식에서 사용 */
+    text-align: center;
+    margin: 10px 0;
+}
+#links ul li a span {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%; /* 150px과 같음 */
+    border: 1px solid #ddd;
+    line-height: 150px; /* 수직으로 중간에 오게 */
+}
+#links ul li a p {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #666;
+}
+#quick-icon1 {
+    background-image: url('../images/icon-1.jpg');
+}
+#quick-icon2 {
+    background-image: url('../images/icon-2.jpg');
+}
+#quick-icon3 {
+    background-image: url('../images/icon-3.jpg');
+}
+
+
+
 
 
 
@@ -205,5 +258,43 @@ button:focus {
 footer {
     width: 100%;
     height: 100px;
-    background-color: grey;
+    /* background-color: grey; */
+    border-top: 2px solid #222;
+}
+#bottomMenu {
+    width: 100%;
+    height: 20px;
+    position: relative;
+}
+#bottomMenu ul {
+    margin-top: 15px;
+}
+#bottomMenu ul li {
+    float: left;
+    padding: 5px 20px;
+    border-right: 1px solid #ddd;
+}
+#bottomMenu ul li:last-child {
+    border-right: none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+    font-size: 15px;
+    color: #666;
+}
+#sns {
+    position: absolute;
+    right: 0;
+}
+#sns ul li {
+    border: none;
+    padding: 5px;
+}
+#company {
+    clear: left; /* 플로팅 해제, both도 가능 */
+    margin-top: 25px;
+    margin-left: 20px;
+}
+p {
+    font-size: 14px;
+    color: #aaa;
 }
